@@ -18,11 +18,11 @@ D = utils.collect_data(env, H=5.0, N=env.N0)
 
 
 ################## model ##################
-dynamics = 'enode'   		# ensemble of neural ODEs
+# dynamics = 'enode'   		# ensemble of neural ODEs
 # dynamics = 'benode' 		# batch ensemble of neural ODEs
 # dynamics = 'ibnode'		# implicit BNN ODEs
 # dynamics = 'pets'	   		# PETS
-# dynamics = 'deep_pilco' 	# deep PILCO
+dynamics = 'deep_pilco' 	# deep PILCO
 n_ens       = 5				# ensemble size
 nl_f        = 3				# number of hidden layers in the differential function
 nn_f        = 200			# number of hidden neurons in each hidden layer of f
@@ -51,7 +51,7 @@ utils.plot_test( ctrl, D, L=30, H=2.5, N=5, fname=ctrl.name+'-test.png')
 
 utils.train_loop(ctrl, D, ctrl.name, 50, L=30, H=2.0)
 
-# ctrl.save(D=D,fname=ctrl.name)				# save the model & dataset
+ctrl.save(D=D,fname=ctrl.name)				# save the model & dataset
 # ctrl_,D_ = base.CTRL.load(env, f'{fname}')	# load the model & dataset
 
 
